@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Level1.tmx</File>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Fantasy Tileset.png</File>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Tileset.png</File>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/hero.png</File>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/hero2.png</File>
+    <File>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Arial.spritefont</File>
+  </SourceFiles>
+</SourceFileCollection>
