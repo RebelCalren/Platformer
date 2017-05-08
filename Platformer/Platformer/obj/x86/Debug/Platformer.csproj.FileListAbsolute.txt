@@ -1,6 +1,5 @@
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Arial.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero.xnb
-C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero2.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Level1.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Tileset.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Platformer.exe
@@ -32,7 +31,19 @@ C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\o
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Fantasy Tileset.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Fantasy Tileset.png
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero.png
-C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero2.png
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Tileset.png
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Arial.spritefont
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Level1.tmx
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Enemy.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\walk.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Heart.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Heart2.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Jump.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.wma
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original_no_Intro.wma
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\SuperHero_original_no_Intro.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin.wma
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin.xnb
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin_no_intro.wma
+C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin_no_intro.xnb

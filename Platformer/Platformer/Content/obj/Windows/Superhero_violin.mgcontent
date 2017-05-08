@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Superhero_violin.ogg</SourceFile>
+  <SourceTime>2016-05-17T15:52:18+10:00</SourceTime>
+  <DestFile>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/bin/Windows/Superhero_violin.xnb</DestFile>
+  <DestTime>2017-05-03T13:04:00.7038531+10:00</DestTime>
+  <Importer>OggImporter</Importer>
+  <ImporterTime>2016-03-30T17:36:08+11:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2016-03-30T17:36:08+11:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/bin/Windows/Superhero_violin.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>

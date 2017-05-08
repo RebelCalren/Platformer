@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
 using MonoGame.Extended.Maps.Tiled;
 using MonoGame.Extended.ViewportAdapters;
@@ -17,11 +18,18 @@ namespace Platformer
         SpriteBatch SpriteBatch;
 
         Player player = null;
-        Player2 player2 = null;
+        Enemy enemy = null;
 
         Camera2D Camera = null;
         TiledMap Map = null;
         TiledTileLayer CollisionLayer;
+
+        SpriteFont Arialfont;
+        int Score = 0;
+        int Lives = 3;
+        Texture2D Heart = null;
+
+        Song GameMusic;
 
         public static int Tile = 64;
         // abitary choice for 1M (1 Tile = 1 Meter)
@@ -70,7 +78,7 @@ namespace Platformer
         {
             // TODO: Add your initialization logic here
             player = new Player(this);
-            player2 = new Player2(this); 
+            enemy = new Enemy(this);
             base.Initialize();
         }
 
@@ -85,7 +93,7 @@ namespace Platformer
 
             // TODO: use this.Content to load your game content here
             player.Load(Content);
-            player2.Load(Content);
+            enemy.Load(Content);
 
             var ViewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice, ScreenWidth, ScreenHeight);
 
@@ -98,17 +106,23 @@ namespace Platformer
                 if (Layer.Name == "Collisions")
                     CollisionLayer = Layer;
             }
+            Arialfont = Content.Load<SpriteFont>("Arial");
+            Heart = Content.Load<Texture2D>("Heart");
+
+            GameMusic = Content.Load<Song>("SuperHero_original_no_Intro");
+            MediaPlayer.Play(GameMusic);
         }
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// game-specific content.
         /// </summary>
-        protected override void UnloadContent()// when i double click Content.mcgb thisd happens
+        protected override void UnloadContent()
 
         {
             // TODO: Unload any non ContentManager content here
         }
+
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,
@@ -123,7 +137,7 @@ namespace Platformer
             // TODO: Add your update logic here
             float DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.Update(DeltaTime);
-            player2.Update(DeltaTime);
+            enemy.Update(DeltaTime);
             Camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2); 
 
             base.Update(gameTime);
@@ -142,8 +156,18 @@ namespace Platformer
             SpriteBatch.Begin(transformMatrix: transformMatrix);
 
             player.Draw(SpriteBatch);
-            player2.Draw(SpriteBatch);
+            enemy.Draw(SpriteBatch);
             Map.Draw(SpriteBatch);
+            SpriteBatch.End();
+
+            SpriteBatch.Begin();
+            SpriteBatch.DrawString(Arialfont, "Score : " + Score.ToString(), new Vector2(20, 20), Color.Orange);
+
+            for (int i = 0; i < Lives; i++)
+            {
+                SpriteBatch.Draw(Heart, new Vector2 (ScreenWidth - 80 - i * 20, 20), Color.White);
+            }
+
             SpriteBatch.End();
 
             // TODO: Add your drawing code here

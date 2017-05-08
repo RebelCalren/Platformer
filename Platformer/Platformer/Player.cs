@@ -3,16 +3,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Platformer
 {
     class Player
     {
         Sprite sprite = new Sprite();
-
         
-
-
         Game1 Game = null;
         bool IsFalling = true;
         bool IsJumping = false;
@@ -20,6 +18,8 @@ namespace Platformer
         Vector2 Velocity = Vector2.Zero;
         Vector2 position = Vector2.Zero;
 
+        SoundEffect JumpSound;
+        SoundEffectInstance JumpSoundInstance;
 
         public Vector2 Position
         {
@@ -28,7 +28,6 @@ namespace Platformer
                 return sprite.position;
             }
         }
-
 
         public Player(Game1 Game)
         {
@@ -41,7 +40,14 @@ namespace Platformer
 
         public void Load(ContentManager Content)
         {
-            sprite.Load(Content, "hero");
+            AnimatedTexture Animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
+            Animation.Load(Content, "walk", 12, 20);
+
+            JumpSound = Content.Load<SoundEffect>("Jump");
+            JumpSoundInstance = JumpSound.CreateInstance();
+
+            sprite.Add(Animation, 0, -5);
+            sprite.Pause();
         }
 
         public void Update(float DeltaTime)
@@ -66,6 +72,8 @@ namespace Platformer
             if (Keyboard.GetState().IsKeyDown(Keys.Left) == true)
             {
                 Acceleration.X -= Game1.Acceleration;
+                sprite.SetFlipped(true);
+                sprite.Play();
             }
             else if (WasMovingLeft == true)
             {
@@ -75,6 +83,8 @@ namespace Platformer
             if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
                 Acceleration.X += Game1.Acceleration;
+                sprite.SetFlipped(false);
+                sprite.Play();
             }
             else if (WasMovingRight == true)
             {
@@ -86,6 +96,7 @@ namespace Platformer
             {
                 Acceleration.Y -= Game1.jumpImpulse;
                 this.IsJumping = true;
+                JumpSoundInstance.Play();
             }
 
             Velocity += Acceleration * DeltaTime;
@@ -100,6 +111,7 @@ namespace Platformer
             if ((WasMovingLeft && (Velocity.X > 0)) || (WasMovingRight && (Velocity.X < 0)))
             {
                 Velocity.X = 0;
+                sprite.Pause();
             }
             int TX = Game.PixelToTile(sprite.position.X);
             int TY = Game.PixelToTile(sprite.position.Y);
@@ -140,6 +152,7 @@ namespace Platformer
                 {
                     sprite.position.X = Game.TileToPixel(TX);
                     this.Velocity.X = 0;
+                    sprite.Pause();
                 }
             }
             else if (this.Velocity.X < 0)
@@ -148,6 +161,7 @@ namespace Platformer
                 {
                     sprite.position.X = Game.TileToPixel(TX + 1);
                     this.Velocity.X = 0;
+                    sprite.Pause();
                 }
             }
             this.IsFalling = !(CellDown || (NX && CellDiag));
