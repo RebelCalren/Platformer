@@ -62,5 +62,15 @@ namespace Platformer
         {
             Animations[CurrentAnimation].Play();
         }
+
+        public Rectangle Bounds
+        {
+            get
+            {
+                return new Rectangle(new Point((int)position.X, (int)position.Y), Animations[CurrentAnimation].FrameSize);
+            }
+        }
+
+        
     }
 }

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
+using ParticleEffects;
 
 namespace Platformer
 {
@@ -43,7 +44,7 @@ namespace Platformer
             AnimatedTexture Animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
             Animation.Load(Content, "walk", 12, 20);
 
-            JumpSound = Content.Load<SoundEffect>("Jump");
+            JumpSound = Content.Load<SoundEffect>("Jump"); // yes
             JumpSoundInstance = JumpSound.CreateInstance();
 
             sprite.Add(Animation, 0, -5);
@@ -91,9 +92,10 @@ namespace Platformer
                 Acceleration.X -= Game1.Friction;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) == true && 
-                this.IsJumping == false && Falling == false)
+            if ((Keyboard.GetState().IsKeyDown(Keys.Up) == true &&
+                this.IsJumping == false && Falling == false) || AutoJump == true)
             {
+                AutoJump = false;
                 Acceleration.Y -= Game1.jumpImpulse;
                 this.IsJumping = true;
                 JumpSoundInstance.Play();
@@ -138,7 +140,7 @@ namespace Platformer
             {
                 if ((Cell && !CellDown) || (CellRight && !CellDiag && NX))
                 {
-                    sprite.position.Y = Game.TileToPixel(TY = 1);
+                    sprite.position.Y = Game.TileToPixel(TY + 1);
                     this.Velocity.Y = 0;
                     Cell = CellDown;
                     CellRight = CellDiag;
@@ -157,7 +159,7 @@ namespace Platformer
             }
             else if (this.Velocity.X < 0)
             {
-                if((Cell && !CellRight) || (CellDown && !CellDiag && NY))
+                if ((Cell && !CellRight) || (CellDown && !CellDiag && NY))
                 {
                     sprite.position.X = Game.TileToPixel(TX + 1);
                     this.Velocity.X = 0;
@@ -165,6 +167,28 @@ namespace Platformer
                 }
             }
             this.IsFalling = !(CellDown || (NX && CellDiag));
-       }
+        }
+
+        bool AutoJump = true;
+        
+        public Vector2 velocity
+        {
+            get { return Velocity; }
+        }
+
+        public Rectangle Bounds
+        {
+            get { return sprite.Bounds;  }
+        }
+        
+        public bool isJumping
+        {
+            get { return IsJumping; }
+        }
+
+        public void JumpOnCollision()
+        {
+            AutoJump = true;
+        }
     }
 }

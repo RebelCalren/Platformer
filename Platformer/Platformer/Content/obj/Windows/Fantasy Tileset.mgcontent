@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/Fantasy Tileset.png</SourceFile>
+  <SourceFile>C:/Users/green_000/Documents/Visual Studio 2015/Projects/Platformer/Platformer/Content/Fantasy Tileset.png</SourceFile>
   <SourceTime>2017-04-24T12:51:08.3541918+10:00</SourceTime>
-  <DestFile>C:/Users/green_000/documents/visual studio 2015/Projects/Platformer/Platformer/Content/bin/Windows/Fantasy Tileset.xnb</DestFile>
-  <DestTime>2017-05-03T13:03:53.2208453+10:00</DestTime>
+  <DestFile>C:/Users/green_000/Documents/Visual Studio 2015/Projects/Platformer/Platformer/Content/bin/Windows/Fantasy Tileset.xnb</DestFile>
+  <DestTime>2017-05-08T13:52:46.5980527+10:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T17:36:08+11:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

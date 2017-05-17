@@ -47,3 +47,7 @@ C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\b
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin.xnb
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin_no_intro.wma
 C:\Users\green_000\documents\visual studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Superhero_violin_no_intro.xnb
+C:\Users\green_000\Documents\Visual Studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero2.xnb
+C:\Users\green_000\Documents\Visual Studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Level3.xnb
+C:\Users\green_000\Documents\Visual Studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\Goal.xnb
+C:\Users\green_000\Documents\Visual Studio 2015\Projects\Platformer\Platformer\bin\Windows\x86\Debug\Content\spark.xnb

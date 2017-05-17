@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="64" nextobjectid="23">
+ <tileset firstgid="1" name="Tileset" tilewidth="64" tileheight="64" tilecount="72" columns="8">
+  <image source="../../../../../../Desktop/Platformer game/Tileset.png" width="512" height="576"/>
+ </tileset>
+ <layer name="Collisions" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBhZwIoIbA7FFkSopSdwQMLUAG5A7A7EHlQyj1Iw2NwDAsSkl8GSPsgFgzHcDYCYC4i50TCxAKaXB0lMCIiF0TA60MBhHkyvCInmYXMHzB4YJsU8bO4gxTz08JQCYmkglsEih45toGqRMQCIXxCH
+  </data>
+ </layer>
+ <objectgroup color="#a00000" name="Enemies">
+  <object id="1" x="524" y="1159" width="40" height="51"/>
+  <object id="9" x="1037" y="827" width="38" height="60"/>
+  <object id="10" x="710" y="572" width="49" height="58"/>
+  <object id="11" x="144" y="575" width="42" height="59"/>
+  <object id="22" x="259" y="92" width="74" height="93"/>
+ </objectgroup>
+ <objectgroup name="Goal"/>
+</map>

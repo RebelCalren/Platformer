@@ -2,10 +2,13 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
 using MonoGame.Extended;
 using MonoGame.Extended.Maps.Tiled;
 using MonoGame.Extended.ViewportAdapters;
 using System;
+using ParticleEffects;
+
 
 namespace Platformer
 {
@@ -29,6 +32,11 @@ namespace Platformer
         int Lives = 3;
         Texture2D Heart = null;
 
+        List<Enemy> Enemies = new List<Enemy>();
+        Sprite Goal = null;
+
+        
+
         Song GameMusic;
 
         public static int Tile = 64;
@@ -51,7 +59,7 @@ namespace Platformer
             {
                 return Graphics.GraphicsDevice.Viewport.Width;
             }
-                
+
         }
 
         public int ScreenHeight
@@ -109,8 +117,41 @@ namespace Platformer
             Arialfont = Content.Load<SpriteFont>("Arial");
             Heart = Content.Load<Texture2D>("Heart");
 
+            AIE.StateManager.CreateState("Splash", new SplashState());
+            AIE.StateManager.CreateState("Game", new GameState());
+            AIE.StateManager.CreateState("GamerOver", new GameOverState());
+
+            AIE.StateManager.PushState("Splash");
+       
+            foreach (TiledObjectGroup Group in Map.ObjectGroups)
+            {
+                if (Group.Name == "Enemies")
+                {
+                    foreach (TiledObject Obj in Group.Objects)
+                    {
+                        Enemy enemy = new Enemy(this);
+                        enemy.Load(Content);
+                        enemy.Position = new Vector2(Obj.X, Obj.Y);
+                        Enemies.Add(enemy);
+                    }
+                }
+                if (Group.Name == "Goal")
+                {
+                    TiledObject Obj = Group.Objects[0];
+                    if (Obj != null)
+                    {
+                        AnimatedTexture Anim = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
+
+                        Anim.Load(Content, "Goal", 1, 1);
+                        Goal = new Sprite();
+                        Goal.Add(Anim, 0, 5);
+                        Goal.position = new Vector2(Obj.X, Obj.Y);
+                    }
+                }
+            }
             GameMusic = Content.Load<Song>("SuperHero_original_no_Intro");
             MediaPlayer.Play(GameMusic);
+
         }
 
         /// <summary>
@@ -137,8 +178,15 @@ namespace Platformer
             // TODO: Add your update logic here
             float DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.Update(DeltaTime);
-            enemy.Update(DeltaTime);
-            Camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2); 
+            foreach (Enemy E in Enemies)
+            {
+                E.Update(DeltaTime);
+            }
+
+            Camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
+            CheckCollisions();
+
+            AIE.StateManager.Update(Content, gameTime);
 
             base.Update(gameTime);
         }
@@ -156,7 +204,13 @@ namespace Platformer
             SpriteBatch.Begin(transformMatrix: transformMatrix);
 
             player.Draw(SpriteBatch);
-            enemy.Draw(SpriteBatch);
+
+            foreach (Enemy E in Enemies)
+            {
+                E.Draw(SpriteBatch);
+            }
+            Goal.Draw(SpriteBatch);
+
             Map.Draw(SpriteBatch);
             SpriteBatch.End();
 
@@ -165,12 +219,14 @@ namespace Platformer
 
             for (int i = 0; i < Lives; i++)
             {
-                SpriteBatch.Draw(Heart, new Vector2 (ScreenWidth - 80 - i * 20, 20), Color.White);
+                SpriteBatch.Draw(Heart, new Vector2(ScreenWidth - 80 - i * 20, 20), Color.White);
             }
 
             SpriteBatch.End();
 
             // TODO: Add your drawing code here
+
+            AIE.StateManager.Draw(SpriteBatch);
 
             base.Draw(gameTime);
         }
@@ -206,5 +262,38 @@ namespace Platformer
             TiledTile Tile = CollisionLayer.GetTile(TX, TY);
             return Tile.Id;
         }
+        private void CheckCollisions()
+        {
+            foreach (Enemy E in Enemies)
+            {
+                if (IsColliding(player.Bounds, E.Bounds) == true)
+                {
+                    if (player.isJumping && player.velocity.Y > 0)
+                    {
+                        player.JumpOnCollision();
+                        Enemies.Remove(E);
+                        break;
+                    }
+                    else
+                    {
+                         
+                    }
+                }
+            }
+        }
+
+        private bool IsColliding(Rectangle Rect1, Rectangle Rect2)
+        {
+            if (Rect1.X + Rect1.Width < Rect2.X ||
+                Rect1.X > Rect2.X + Rect2.Width ||
+                Rect1.Y + Rect1.Height < Rect2.Y ||
+                Rect1.Y > Rect2.Y + Rect2.Height)
+            {
+                return false;
+            }
+            return true;
+        }
+
     }
 }
+        

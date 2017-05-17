@@ -14,11 +14,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin Level1.tmx
-/importer:TiledMapImporter
-/processor:TiledMapProcessor
-/build:Level1.tmx
-
 #begin Fantasy Tileset.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -60,18 +55,6 @@
 /processor:FontDescriptionProcessor
 /processorParam:TextureFormat=Compressed
 /build:Arial.spritefont
-
-#begin Enemy.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Enemy.png
 
 #begin walk.png
 /importer:TextureImporter
@@ -138,4 +121,50 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Superhero_violin_no_intro.ogg
+
+#begin Level3.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Level3.tmx
+
+#begin Enemy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Enemy.png
+
+#begin Goal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Goal.png
+
+#begin Level1.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Level1.tmx
+
+#begin spark.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:spark.png
 
